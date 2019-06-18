@@ -1,0 +1,39 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>商品搜索</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>输入书名</ion-label>
+      <ion-input type="text" [(ngModel)]="shopname"></ion-input>
+    </ion-item>
+  <div padding>
+    <button ion-button color="primary" block (click)="serach()">搜索</button>
+  </div>
+</ion-list>
+<ion-item-divider class="t-header" color="light">搜索结果</ion-item-divider>
+  <div class="product">
+    <ion-row wrap>
+      <ion-col tappable col-6 *ngFor="let p of products" (click)="goDetails(p)">
+        <img src="{{p.shopimg}}" alt=""/>
+        <p>{{p.shopname}}</p>
+        <div class="list-price buy">
+          <span class="price-new"><i>现价: ￥</i>{{p.price-p.huodong}}</span>
+            <i class="del" >原价: ￥<span>{{p.price}}</span></i>
+        </div>
+      </ion-col>
+    </ion-row>
+</div>
+</ion-content>
